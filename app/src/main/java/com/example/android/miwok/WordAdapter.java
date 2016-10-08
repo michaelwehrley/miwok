@@ -1,10 +1,12 @@
 package com.example.android.miwok;
 
 import android.app.Activity;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,17 +33,19 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         // Find the TextView in the list_item.xml layout with the ID version_number
         TextView defaultTranslationTextView = (TextView) listItemView.findViewById(R.id.defaultTranslation);
-        // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
         defaultTranslationTextView.setText(currentWord.getDefaultWord());
 
         // Find the TextView in the list_item.xml layout with the ID version_name
         TextView miwokTranslationTextView = (TextView) listItemView.findViewById(R.id.miwokTranslation);
-        // Get the version name from the current AndroidFlavor object and
         // set this text on the name TextView
         miwokTranslationTextView.setText(currentWord.getMiwokWord());
+
+        // Find the ImageView in the list_item.xml layout with the ID version_name
+        ImageView image = (ImageView) listItemView.findViewById(R.id.image);
+        // set this src on the name ImageView
+        image.setImageResource(currentWord.getResourceId());
 
         return listItemView;
     }
 }
-
