@@ -46,6 +46,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // set this src on the name ImageView
         image.setImageResource(currentWord.getResourceId());
 
+        if (currentWord.getResourceId() == 0) {
+            image.setVisibility(ImageView.GONE);
+        }
+
         return listItemView;
     }
 }
